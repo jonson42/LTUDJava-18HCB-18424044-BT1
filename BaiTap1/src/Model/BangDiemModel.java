@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Vip
  */
-public class TKBModel {
-    public String Lop;
-    public List<TKBDetails> Details;
+public class BangDiemModel {
+    public String tenLop;
+    public List<DiemDetails> diemDetail;
 }

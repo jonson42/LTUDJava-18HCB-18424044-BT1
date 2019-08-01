@@ -5,13 +5,13 @@
  */
 package Model;
 
-import java.util.List;
-
 /**
  *
  * @author Vip
  */
-public class TKBModel {
-    public String Lop;
-    public List<TKBDetails> Details;
+public class TKBDetails {
+    public String STT;
+    public String MaMon;
+    public String TenMon;
+    public String PhongHoc;
 }
