@@ -8,8 +8,10 @@ package Query;
 import Model.BangDiemModel;
 import Model.DiemDetails;
 import Model.LopModel;
+import Model.SinhVienModel;
 import Model.TKBDetails;
 import Model.TKBModel;
+import SinhVien.SinhVien;
 import java.util.List;
 
 /**
@@ -19,7 +21,11 @@ import java.util.List;
 public class Query {
     
     public void XemDanhSachLop(String nameLop,List<LopModel> list){
-        
+        LopModel lop = GetDanhSachLop(nameLop,list);
+        System.out.println(lop.Name);
+        for(SinhVienModel sv:lop.SinhVien){
+            System.out.println(sv.CMND+" "+sv.GioiTinh+" "+sv.HoTen+" "+sv.MSSV+" "+sv.STT);
+        }
     }
     public LopModel GetDanhSachLop(String nameLop,List<LopModel> list){
         LopModel lop = new LopModel();
