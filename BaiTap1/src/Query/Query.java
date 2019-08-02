@@ -6,6 +6,7 @@
 package Query;
 
 import Model.BangDiemModel;
+import Model.DiemDetails;
 import Model.LopModel;
 import Model.TKBDetails;
 import Model.TKBModel;
@@ -17,7 +18,10 @@ import java.util.List;
  */
 public class Query {
     
-    public LopModel XemDanhSachLop(String nameLop,List<LopModel> list){
+    public void XemDanhSachLop(String nameLop,List<LopModel> list){
+        
+    }
+    public LopModel GetDanhSachLop(String nameLop,List<LopModel> list){
         LopModel lop = new LopModel();
         for(LopModel lopModel:list){
             if(lop.Name.equals(nameLop)){
@@ -27,7 +31,14 @@ public class Query {
         }
         return lop;
     }
-    public TKBModel XemThoiKhoaBieu(String nameLop,List<TKBModel> list){
+    public void XemThoiKhoaBieu(String nameLop,List<TKBModel> list){
+        TKBModel tkb = GetThoiKhoaBieu(nameLop,list);
+        System.out.println(tkb.Lop);
+        for(TKBDetails tkbItem:tkb.Details){
+            System.out.println(tkbItem.MaMon+" "+tkbItem.PhongHoc+" "+tkbItem.STT+" "+tkbItem.TenMon);
+        }
+    }
+    public TKBModel GetThoiKhoaBieu(String nameLop,List<TKBModel> list){
         TKBModel tkb = new TKBModel();
         for(TKBModel tkbModel: list){
             if(tkbModel.Lop.equals(nameLop)){
@@ -37,7 +48,14 @@ public class Query {
         }
         return tkb;
     }
-    public BangDiemModel XemBangDiem(String tenLop,List<BangDiemModel> list){
+    public void XemBangDiem(String tenLop,List<BangDiemModel> list){
+        BangDiemModel bangDiem= GetBangDiem(tenLop,list);
+        System.out.println(bangDiem.tenLop);
+        for(DiemDetails diemItem:bangDiem.diemDetail){
+            System.out.println(diemItem.HoTen+" "+diemItem.MSSV+" "+diemItem.STT+" "+diemItem.ÐiemCK+" "+diemItem.ÐiemGK+" "+diemItem.ÐiemKhac+" "+diemItem.ÐiemTong+" ");
+        }
+    }
+    public BangDiemModel GetBangDiem(String tenLop,List<BangDiemModel> list){
         BangDiemModel bangDiem = new BangDiemModel();
         for(BangDiemModel bangDiemItem:list){
             if(bangDiemItem.tenLop.equals(tenLop)){
