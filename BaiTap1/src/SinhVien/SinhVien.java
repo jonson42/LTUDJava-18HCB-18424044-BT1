@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package SinhVien;
+import Model.BangDiemModel;
+import Model.DiemDetails;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import Model.SinhVienModel;
@@ -31,5 +33,15 @@ public class SinhVien {
             Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);
         }
        return sv;
+    }
+    public DiemDetails XemDiemSinhVien(String mSSV,BangDiemModel bangDiem){
+        DiemDetails diemDetails = new DiemDetails();
+        for(DiemDetails diem:bangDiem.diemDetail){
+            if(diem.MSSV==mSSV){
+                diemDetails = diem;
+                break;
+            }
+        }
+        return diemDetails;
     }
 }
