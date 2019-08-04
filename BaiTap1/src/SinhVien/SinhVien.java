@@ -47,14 +47,18 @@ public class SinhVien {
             }
         }
     }
-    public DiemDetails XemDiemSinhVien(String mSSV,BangDiemModel bangDiem){
+    public DiemDetails GetDiemSinhVien(String mSSV,BangDiemModel bangDiem){
         DiemDetails diemDetails = new DiemDetails();
         for(DiemDetails diem:bangDiem.diemDetail){
-            if(diem.MSSV==mSSV){
+            if(diem.MSSV.equals(mSSV)){
                 diemDetails = diem;
                 break;
             }
         }
         return diemDetails;
+    }
+    public void XemDiemSinhVien(String mSSV,BangDiemModel bangDiem){
+        DiemDetails diem=GetDiemSinhVien(mSSV,bangDiem);
+        System.out.println(diem.HoTen+" "+diem.MSSV+" "+diem.ÐiemGK+" "+diem.ÐiemCK+" "+diem.ÐiemKhac+" "+diem.ÐiemTong);
     }
 }

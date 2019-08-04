@@ -38,25 +38,38 @@ public class BaiTap1 {
         String user="";
         String pass="";
         boolean sinhVien =false;
-        //Cau 11 : Dang nhap
+        while(true){
+            //Cau 11 : Dang nhap
         System.out.println("Vui long nhap user:");
         user = ob.readLine(); 
         System.out.println("Vui long nhap password:");
         pass = ob.readLine();
         if(user.equals("1842001")&&pass.equals("1842001")){
             //Cau 10: sinh vien chi duoc xem diem cua minh
-            sv.XemDiemSinhVien("1842001", bangDiem);
+            while(true){
+                boolean giaoVuSession=true;
+                
+                sv.XemDiemSinhVien("1742005", bangDiem);
+               System.out.println("1.Logout!");
+                s = ob.readLine();
+                if(s=="1"){
+                    break;
+                }
+            }
+            
         }else if(user.equals("giaovu")&&pass.equals("giaovu")){
             while(true){
+               boolean giaoVuSession=true;
                System.out.println("1.Import danh sach lop");
                System.out.println("2.Them 1 sinh vien");
                System.out.println("3.Import thoi khoa bieu.");
-               System.out.println("4.Import thoi khoa bieu.");
+               System.out.println("4.Import danh sach lop theo mon.");
                System.out.println("5.Xem danh sach lop.");
                System.out.println("6.Xem thoi khoa bieu.");
                System.out.println("7.Import bang diem.");
                System.out.println("8.Xem bang diem.");
                System.out.println("9.Sua diem 1 sinh vien.");
+               System.out.println("10.Logout");
                s = ob.readLine();
                switch(s){
                    case "1":
@@ -81,6 +94,11 @@ public class BaiTap1 {
                         listTKB.add(tkb);
                        break;
                    case "4":
+                       //Cau 4: Import danh sach lop theo mon
+                       System.out.println("Nhap duong dan chua danh sach lop");
+                        s = ob.readLine();
+                        lop = data.ImportSinhVien(s);
+                        listLop.add(lop);
                        break;
                    case "5":
                        // Cau 5: Xem danh sach lop:
@@ -124,12 +142,18 @@ public class BaiTap1 {
                          sv.SuaDiemSinhVien(mSSV,listBangDiem,diemGK,diemCK,diemKhac,diemTong);
                        break;    
                    case "10":
-                       return;
+                       giaoVuSession=false;
+                       break;
+               }
+               if(!giaoVuSession){
+                   break;
                }
             }            
         }else{
             System.out.println("Tai khoan va mat khau khong dung .");
         }
+        }
+        
     }
     
 }
