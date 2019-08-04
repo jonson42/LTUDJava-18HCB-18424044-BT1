@@ -41,8 +41,6 @@ public class BaiTap1 {
         }
         String s; 
         System.out.println("Nhập đường dẫn chứa danh sách lớp");
-        s = ob.readLine();  
-	System.out.println("You entered String "+s);
         ImportData data = new ImportData();
         LopModel lop = data.ImportSinhVien(s);
         System.out.println("Nhập đường dẫn chứa bảng điểm");
