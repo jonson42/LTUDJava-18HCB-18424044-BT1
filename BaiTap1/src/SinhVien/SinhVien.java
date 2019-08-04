@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import Model.SinhVienModel;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -33,6 +34,18 @@ public class SinhVien {
             Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);
         }
        return sv;
+    }
+    public void SuaDiemSinhVien(String mSSV,List<BangDiemModel> listBD,String diemGK,String diemCK,String diemKhac,String diemTong){
+        for(BangDiemModel itemBangDiem:listBD){
+            for(DiemDetails itemDetails:itemBangDiem.diemDetail){
+                if(itemDetails.MSSV.equals(mSSV)){
+                  itemDetails.ÐiemCK=diemCK;
+                  itemDetails.ÐiemGK=diemGK;
+                  itemDetails.ÐiemKhac=diemKhac;
+                  itemDetails.ÐiemTong=diemTong;
+                }
+            }
+        }
     }
     public DiemDetails XemDiemSinhVien(String mSSV,BangDiemModel bangDiem){
         DiemDetails diemDetails = new DiemDetails();
