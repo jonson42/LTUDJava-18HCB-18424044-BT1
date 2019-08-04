@@ -26,12 +26,12 @@ public class BaiTap1 {
     public static void main(String[] args) throws IOException {
         SinhVien sv = new SinhVien();
         BangDiemModel bangDiem =new BangDiemModel();
-        List<LopModel> listLop=null ;//= new ArrayList<LopModel)();
-        List<TKBModel> listTKB=null;
-        List<BangDiemModel> listBangDiem=null;
+        List<LopModel> listLop=new ArrayList<LopModel>();
+        List<TKBModel> listTKB=new ArrayList<TKBModel>();
+        List<BangDiemModel> listBangDiem= new ArrayList<BangDiemModel>();
         Query query = new Query();
         ImportData data = new ImportData();
-        LopModel lop=null;
+        LopModel lop=new LopModel();
         String s; 
         BufferedReader ob = new BufferedReader(new InputStreamReader(System.in));
         boolean giaoVu=false;
@@ -39,9 +39,9 @@ public class BaiTap1 {
         String pass="";
         boolean sinhVien =false;
         //Cau 11 : Dang nhap
-        System.out.println("Vui lòng nhập user:");
+        System.out.println("Vui long nhap user:");
         user = ob.readLine(); 
-        System.out.println("Vui lòng nhập password:");
+        System.out.println("Vui long nhap password:");
         pass = ob.readLine();
         if(user.equals("1842001")&&pass.equals("1842001")){
             //Cau 10: sinh vien chi duoc xem diem cua minh
@@ -61,9 +61,10 @@ public class BaiTap1 {
                switch(s){
                    case "1":
                        //Cau 1 : import danh sach lop
-                        System.out.println("Nhập đường dẫn chứa danh sách lớp");
+                        System.out.println("Nhap duong dan chua danh sach lop");
                         s = ob.readLine();
                         lop = data.ImportSinhVien(s);
+                        listLop.add(lop);
                        break;
                    case "2":
                        //Cau 2 : them 1 sinh vien
@@ -74,16 +75,17 @@ public class BaiTap1 {
                        break;
                    case "3":
                        //Cau 3 : import thoi khoa bieu
-                        System.out.println("Nhập đường dẫn chứa Thoi khoa bieu");
+                        System.out.println("Nhap đuong dan chua Thoi khoa bieu");
                         s = ob.readLine();
                         TKBModel tkb =data.ImportThoiKhoaBieu(s);
+                        listTKB.add(tkb);
                        break;
                    case "4":
                        break;
                    case "5":
                        // Cau 5: Xem danh sach lop:
                         
-                        System.out.println("Nhập ma lop can xem :");
+                        System.out.println("Nhap ma lop can xem :");
                          s = ob.readLine();
                         query.XemDanhSachLop(s,listLop);
                        break;
@@ -95,9 +97,10 @@ public class BaiTap1 {
                        break;
                    case "7":
                        //Cau 7: Import bang diem
-                        System.out.println("Nhập đường dẫn chứa bảng điểm");
+                        System.out.println("Nhap đuong dan chua bang diem");
                          s = ob.readLine();
                         bangDiem=data.ImportBangDiem(s);
+                        listBangDiem.add(bangDiem);
                        break;
                    case "8":
                         //Cau 8 : Xem bang diem 
@@ -120,10 +123,12 @@ public class BaiTap1 {
                          String diemTong = ob.readLine();
                          sv.SuaDiemSinhVien(mSSV,listBangDiem,diemGK,diemCK,diemKhac,diemTong);
                        break;    
+                   case "10":
+                       return;
                }
             }            
         }else{
-            System.out.println("Tài khoản và mật khẩu không đúng .");
+            System.out.println("Tai khoan va mat khau khong dung .");
         }
     }
     

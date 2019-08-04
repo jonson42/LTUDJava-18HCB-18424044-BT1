@@ -21,14 +21,14 @@ public class SinhVien {
     public SinhVienModel NhapSinhVien(){
         SinhVienModel sv=new SinhVienModel();
         BufferedReader ob = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Nhập MSSV:");
+        System.out.println("Nhap MSSV:");
         try {
             sv.MSSV=ob.readLine();
-            System.out.println("Nhập HoTen:");
+            System.out.println("Nhap HoTen:");
             sv.HoTen = ob.readLine();
-            System.out.println("Nhập GioiTinh:");
+            System.out.println("Nhap GioiTinh:");
             sv.GioiTinh = ob.readLine();
-            System.out.println("Nhập CMND:");
+            System.out.println("Nhap CMND:");
             sv.CMND = ob.readLine();
         } catch (IOException ex) {
             Logger.getLogger(SinhVien.class.getName()).log(Level.SEVERE, null, ex);

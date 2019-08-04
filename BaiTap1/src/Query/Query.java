@@ -30,7 +30,7 @@ public class Query {
     public LopModel GetDanhSachLop(String nameLop,List<LopModel> list){
         LopModel lop = new LopModel();
         for(LopModel lopModel:list){
-            if(lop.Name.equals(nameLop)){
+            if(lopModel.Name.equals(nameLop)){
                 lop = lopModel;
                 break;
             }
